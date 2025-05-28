@@ -10,12 +10,15 @@ welcome()
 
 def KBC(no_of_ques):
     with open(r'E:\Coding\Coding\Python\Holiday Homework\ques.txt', 'r') as f:
-        data = f.readlines()
-        ans = []
+        data = f.read()
+        list_data = eval(data)
+        print(type(list_data))
+        exit()
+        ques_data = random.sample(list_data,20)
         
         ##### Printing ques and options #####
         for i in range(no_of_ques):
-            ques = eval(data[i])
+            ques = eval(ques_data[i])
             print(f'Question {i+1}:',ques[0])
             # n += 1
             for i in range(4):
@@ -78,6 +81,6 @@ def check_ans(answ,no_of_ques):
                 
                     
  
-n = 20
+n = 2
 answers = KBC(n)
 check_ans(answers,n)
