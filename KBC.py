@@ -81,3 +81,4 @@ def check_ans(answ,no_of_ques):
 n = 20
 answers = KBC(n)
 check_ans(answers,n)
+print('hello')
