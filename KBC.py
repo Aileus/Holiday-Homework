@@ -5,7 +5,6 @@ def welcome():
     print("Type 1-4 to answer each question.")
     print("You get +10 points for a correct answer and -5 for a wrong answer.")
     print("Good luck!\n")
-
 welcome()
 
 def KBC(no_of_ques):
@@ -20,7 +19,7 @@ def KBC(no_of_ques):
             
         quesitonaire = random.sample(ques_list,20)
         
-        ##### Printing ques and options #####
+        #### Printing ques and options #####
         for i in range(no_of_ques):
             ques = quesitonaire[i]
             print(f'Question {i+1}:',ques[0])
@@ -28,6 +27,7 @@ def KBC(no_of_ques):
             for i in range(4):
                 print(f'{i+1})', ques[1][i])
         #####################################
+        
         ##### Taking the answers ############
             a = int(input('\nEnter your option number: '))
             print('\n')
@@ -43,6 +43,7 @@ def KBC(no_of_ques):
                     print('Follow the rules!!')
                     exit()
         #####################################
+        
     return ans   
 
 def check_ans(answ,no_of_ques):
@@ -82,7 +83,6 @@ def check_ans(answ,no_of_ques):
                     print(f'The correct answer was: "{ans}"\n')
                     score -= 5
     print(f'You scored {score} out of {no_of_ques*10}')
-                
                     
  
 n = 20
