@@ -174,10 +174,8 @@ def search():
                 print("\nMovie Found-->")
                 for k, v in movie.items():
                     label = str(k).capitalize()
-                    if label == 'Duration':
-                        label = 'Duration (mins)'
-                    elif label == 'Production_cost':
-                        label = 'Production Cost ($)'
+                    if label == 'Duration': label = 'Duration (mins)'
+                    elif label == 'Production_cost': label = 'Production Cost ($)'
                     print(f" {label} : {v}")
 
         if not found:
