@@ -129,8 +129,65 @@ def update():
         with open(r'Holiday Homework\miniproj.dat', 'wb') as f:
             pickle.dump(data,f)        
 
+def search():
+    import pickle
+    print('Select the field you want to search: \n 1--> Movie Id \n 2--> Name \n 3--> Production Cost \n 4--> Director \n 5--> Duration \nType 1 to 5 to select')
+    field = int(input('Enter the number of the field you want to search: '))
+    match field:
+        case 1:
+            print(r'You have selected the "Movie Id" field')
+            movie_id = input('Type the movie id: ')
+        case 2:
+            print(r'You have selected the "Name" field')
+            name = input('Type the name: ')
+        case 3:
+            print(r'You have selected the "Production Cost" field')
+            cost = int(input('Type the production cost: '))
+        case 4:
+            print(r'You have selected the "Director" field')
+            director = input('Type the director: ')
+        case 5:
+            print(r'You have selected the "Duration" field')
+            duration = int(input('Type the duration (in minutes): '))
+        case _:
+            print("Invalid selection.")
+    
+    with open(r'Holiday Homework\miniproj.dat', 'rb') as f:
+        movies = pickle.load(f)
+        
+        found = False
+        for movie in movies:
+            matched = False
+            if 'name' in locals() and name.lower() in movie['name'].lower():
+                matched = True
+            elif 'director' in locals() and director.lower() in movie['director'].lower():
+                matched = True
+            elif 'cost' in locals() and cost == movie['production_cost']:
+                matched = True
+            elif 'duration' in locals() and duration == movie['duration']:
+                matched = True
+            elif 'movie_id' in locals() and movie_id == movie['m_id']:
+                matched = True
 
+            if matched:
+                found = True
+                print("\nMovie Found-->")
+                for k, v in movie.items():
+                    label = str(k).capitalize()
+                    if label == 'Duration':
+                        label = 'Duration (mins)'
+                    elif label == 'Production_cost':
+                        label = 'Production Cost ($)'
+                    print(f" {label} : {v}")
+
+        if not found:
+            print("\nNo matching movie found.")
+
+        
+        
+        
+search()
 # show()
-write()
+# write()
 # update()    
  
